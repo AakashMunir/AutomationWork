@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.10 on darwin)" generated="20220411 14:19:04.477" rpa="false" schemaversion="2">
+<suite id="s1" name="Topsearch" source="/Users/applepc/Desktop/Appium Clone/appium-test-cases/Test-Cases-For-Android/ExperimentTestCases/topsearch.robot">
+<test id="s1-t1" name="Top Search test case:">
+<kw name="TC:1 read string from the excel file character by character and hit accordingly">
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>${file_path}</arg>
+<arg>sheet_name=Sheet1</arg>
+<doc>Opens xlsx document file.</doc>
+<msg timestamp="20220411 14:19:05.236" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: '../TestData/stringfortopsearch.xlsx'</msg>
+<status status="FAIL" starttime="20220411 14:19:05.231" endtime="20220411 14:19:05.236"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>2</value>
+<value>5</value>
+<iter>
+<var name="${i}">${i}</var>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${string}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<arg>Sheet1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.237" endtime="20220411 14:19:05.237"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>excel string is=====&gt;${string}&lt;=====</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.237" endtime="20220411 14:19:05.237"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${string}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.238" endtime="20220411 14:19:05.238"/>
+</kw>
+<kw name="Split String To Characters" library="String">
+<var>@{characters}</var>
+<arg>${string}</arg>
+<doc>Splits the given ``string`` to characters.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.238" endtime="20220411 14:19:05.238"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${characters}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.238" endtime="20220411 14:19:05.238"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Printing single character--&gt;${characters}[0]&lt;--</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.238" endtime="20220411 14:19:05.238"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${word}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.239" endtime="20220411 14:19:05.239"/>
+</kw>
+<for flavor="IN">
+<var>${char}</var>
+<value>@{characters}</value>
+<iter>
+<var name="${char}">${char}</var>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession1</arg>
+<arg>${base_url_for_top_search}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.239" endtime="20220411 14:19:05.239"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>X-api-key=5j4fPiaQbQ8SzcrGKm5fk2Pm5UYdVl8CInFHUT30</arg>
+<arg>User-Agent=aws-sdk-android/2.18.0 Linux/4.14.116 Dalvik/2.1.0/0 en_PK appVersion/591 apiVersion/4.4, AmazonAPIGateway_6az2tmngeb</arg>
+<arg>Content-Type=application/json</arg>
+<arg>token=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.239" endtime="20220411 14:19:05.240"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${entity}</var>
+<arg>type=text</arg>
+<arg>content=Q29udHJhcnkgdG8gcG9wdWxhciBiZWxpZWYsIExvcmVtIElwc3VtIGlzIG5vdCBzaW1wbHkgcmFuZG9tIHRleHQuIEl0IGhhcyByb290cyBpbiBhIHBpZWNlIG9mIGNsYXNzaWNhbCBMYXRpbiBsaXRlcmF0dXJlIGZyb20gNDUgQkMsIG1ha2luZyBpdCBvdmVyIDIwMDAgeWVhcnMgb2xkLiBSaWNoYXJkIE1jQ2xpbnRvY2ssIGEgTGF0aW4gcHJvZmVzc29yIGF0IEhhbXBkZW4tU3lkbmV5IENvbGxlZ2UgaW4gVmlyZ2luaWEsIGxvb2tlZCB1cCBvbmUgb2YgdGhlIG1vcmUgb2JzY3VyZSBMYXRpbiB3b3JkcywgY29uc2VjdGV0dXIsIGZyb20gYSBMb3JlbSBJcHN1bSBwYXNzYWdlLCBhbmQgZ29pbmcgdGhyb3VnaCB0aGUgY2l0ZXMgb2YgdGhlIHdvcmQgaW4gY2xhc3NpY2FsIGxpdGVyYXR1cmUsIGRpc2NvdmVyZWQgdGhlIHVuZG91YnRhYmxlIHNvdXJjZS4gTG9yZW0gSXBzdW0gY29tZXMgZnJvbSBzZWN0aW9ucyAxLjEwLjMyIGFuZCAxLjEwLjMzIG9mICJkZSBGaW5pYnVzIEJvbm9ydW0gZXQgTWFsb3J1bSIgKFRoZSBFeHRyZW1lcyBvZiBHb29kIGFuZCBFdmlsKSBieSBDaWNlcm8sIHdyaXR0ZW4gaW4gNDUgQkMuIFRoaXMgYm9vayBpcyBhIHRyZWF0aXNlIG9uIHRoZSB0aGVvcnkgb2YgZXRoaWNzLCB2ZXJ5IHBvcHVsYXIgZHVyaW5nIHRoZSBSZW5haXNzYW5jZS4gVGhlIGZpcnN0IGxpbmUgb2YgTG9yZW0gSXBzdW0sICJMb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldC4uIiwgY29tZXMgZnJvbSBhIGxpbmUgaW4gc2VjdGlvbiAxLjEwLjMyLgoKVGhlIHN0YW5kYXJkIGNodW5rIG9mIExvcmVtIElwc3VtIHVzZWQgc2luY2UgdGhlIDE1MDBzIGlzIHJlcHJvZHVjZWQgYmVsb3cgZm9yIHRob3NlIGludGVyZXN0ZWQuIFNlY3Rpb25zIDEuMTAuMzIgYW5kIDEuMTAuMzMgZnJvbSAiZGUgRmluaWJ1cyBCb25vcnVtIGV0IE1hbG9ydW0iIGJ5IENpY2VybyBhcmUgYWxzbyByZXByb2R1Y2VkIGluIHRoZWlyIGV4YWN0IG9yaWdpbmFsIGZvcm0sIGFjY29tcGFuaWVkIGJ5IEVuZ2xpc2ggdmVyc2lvbnMgZnJvbSB0aGUgMTkxNCB0cmFuc2xhdGlvbiBieSBILiBSYWNraGFtLg</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.240" endtime="20220411 14:19:05.240"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${word}</var>
+<arg>${word}${char}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.240" endtime="20220411 14:19:05.240"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>&lt;&lt;&lt;&lt;&lt;----${word}-----&gt;&gt;&gt;&gt;&gt;</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.240" endtime="20220411 14:19:05.240"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>search_key=${word}</arg>
+<arg>type=T</arg>
+<arg>offset=0</arg>
+<arg>limit=40</arg>
+<arg>lat="38.78585"</arg>
+<arg>lon="38.1252"</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.240" endtime="20220411 14:19:05.240"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.241" endtime="20220411 14:19:05.241"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body1}</var>
+<arg>data=${body}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.241" endtime="20220411 14:19:05.241"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${body_data}</var>
+<arg>json.dumps(${body1})</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.241" endtime="20220411 14:19:05.241"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>mysession1</arg>
+<arg>trending/search</arg>
+<arg>headers=${header}</arg>
+<arg>data=${body_data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.241" endtime="20220411 14:19:05.241"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.241" endtime="20220411 14:19:05.242"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220411 14:19:05.242" endtime="20220411 14:19:05.242"/>
+</kw>
+<status status="NOT RUN" starttime="20220411 14:19:05.239" endtime="20220411 14:19:05.242"/>
+</iter>
+<status status="NOT RUN" starttime="20220411 14:19:05.239" endtime="20220411 14:19:05.242"/>
+</for>
+<status status="NOT RUN" starttime="20220411 14:19:05.237" endtime="20220411 14:19:05.242"/>
+</iter>
+<status status="NOT RUN" starttime="20220411 14:19:05.236" endtime="20220411 14:19:05.242"/>
+</for>
+<status status="FAIL" starttime="20220411 14:19:05.231" endtime="20220411 14:19:05.243"/>
+</kw>
+<status status="FAIL" starttime="20220411 14:19:05.230" endtime="20220411 14:19:05.243">FileNotFoundError: [Errno 2] No such file or directory: '../TestData/stringfortopsearch.xlsx'</status>
+</test>
+<status status="FAIL" starttime="20220411 14:19:04.479" endtime="20220411 14:19:05.244"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Topsearch">Topsearch</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

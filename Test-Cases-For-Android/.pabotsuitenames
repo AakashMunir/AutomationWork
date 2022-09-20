@@ -1,0 +1,10 @@
+datasources:d035aac116abc5376c541caaae1980529761fa47
+commandlineoptions:9f8598a690c7367accf83ead504756ddd374acc9
+suitesfrom:no-suites-from-option
+file:ec62894ea80b79a7bdf288bbe255b7e4cf9c0b3a
+--suite Suites.GroupChat1
+--suite Suites.GroupChat2
+--suite Suites.GroupChat3
+--suite Suites.GroupChat4
+--suite Suites.GroupChat5
+--suite Suites.GroupChat6

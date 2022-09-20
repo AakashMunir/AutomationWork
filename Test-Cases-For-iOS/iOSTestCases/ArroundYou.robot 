@@ -1,0 +1,54 @@
+*** Settings ***
+Library  AppiumLibrary
+Resource  ../iOSTestCasesResources/iOSSmokeTestCaseResources.robot
+Resource  ../iOSCommonXpathsOrIDs/iOSSmokeTestCaseXpathsOrIDs.robot
+
+
+*** Test Cases ***
+
+Test Case For Open The Fayvo
+    Steps for open fayvo application
+
+Test Case For Verify The Group Chat Banner
+    verify the arround you
+Test Case For Join The Talk
+    joi
+Test Case For First Transition Screen
+    check the the first transition screen
+Test Case For Second Transition Screen
+    check the the second transition screen
+Test Case For Third Transition Screen
+    check the the third transition screen
+    verify message field
+Test Case For Send The Message
+    send the message
+Test Case For Delete Message
+    delete the message from goup chat
+    delete message banner
+Test case For Group Chat Detail
+    steps for group detail
+    verify group detail screen
+Test Case For Group User Count
+    steps for group user count
+Test Case For Group Option verification
+    open the option
+    verify option sheet
+Test Case For Report Groupe
+    report the group
+    report group banner
+Test Case For Leave Group
+    leave the group
+    leave group banner
+Test Case For Other Zone
+    other zone activities
+
+
+
+
+
+
+
+
+
+Test Case For Close The Application
+    close application
